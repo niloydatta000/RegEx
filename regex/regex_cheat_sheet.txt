@@ -1,0 +1,40 @@
+
+REGEX QUICK REFERENCE (Python `re` module)
+
+CHARACTER CLASSES:
+  .     Any character except newline
+  \d    Digit (0–9)
+  \D    Not a digit
+  \w    Word character (a-z, A-Z, 0-9, _)
+  \W    Not a word character
+  \s    Whitespace (space, tab, newline)
+  \S    Not whitespace
+  [abc] Any one of: a, b, or c
+  [^abc]Any character except a, b, or c
+
+ANCHORS:
+  ^     Start of string
+  $     End of string
+  \b    Word boundary
+  \B    Not a word boundary
+
+QUANTIFIERS:
+  *     0 or more
+  +     1 or more
+  ?     0 or 1
+  {n}   Exactly n
+  {n,}  At least n
+  {n,m} Between n and m
+
+ESCAPE SEQUENCES:
+  \.    A literal period (.)
+  \\    A literal backslash
+  \n    Newline
+  \t    Tab
+
+COMMON PATTERNS:
+  \w+@\w+\.\w+     Email
+  \d{10}           10-digit phone number
+  \d{4}-\d{2}-\d{2} Date YYYY-MM-DD
+  ^Hello           Starts with "Hello"
+  world$           Ends with "world"
