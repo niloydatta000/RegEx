@@ -4,6 +4,7 @@
 
 
 import re
+from typing import List
 
 regex_patterns = {
     r"\d": "Digit (0–9)",
@@ -27,15 +28,30 @@ regex_patterns = {
 
 
 
-def explain(pattern):
+def explain(pattern: str) -> str:
+    """
+    Explain a regex pattern using the quick reference dictionary.
+    Args:
+        pattern (str): The regex pattern to explain.
+    Returns:
+        str: A description of the regex pattern.
+        """
+    
     for key, desc in regex_patterns.items():
-        if key == pattern:
-            return f"{pattern} → {desc}"
-    return "Pattern not found in quick reference."
+        result = re.fullmatch(key, pattern)
+        return f"{pattern} → {desc}" if result is not None else "Pattern not found in quick reference."
 
 
 
-def search_by_description(keyword):
+def search_by_description(keyword: str) -> List[str]:
+    """
+    Search for regex patterns by description.
+    Args:
+        keyword (str): The keyword to search for in the descriptions.
+    Returns:
+        list: A list of regex patterns that match the keyword.
+        """
+    
     words = re.findall(r'\w+', keyword.lower())
     results = [f"{pattern} → {desc}" for pattern, desc in regex_patterns.items() if all(re.search(re.escape(word), desc.lower()) for word in words)]
     
