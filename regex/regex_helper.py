@@ -38,8 +38,9 @@ def explain(pattern: str) -> str:
         """
     
     for key, desc in regex_patterns.items():
-        result = re.fullmatch(key, pattern)
-        return f"{pattern} → {desc}" if result is not None else "Pattern not found in quick reference."
+        if pattern == key:
+            return f"{pattern} → {desc}"
+    return "Pattern not found in quick reference."
 
 
 
